@@ -248,12 +248,12 @@ the test result is known. For example
 In general the use of timeouts in tests is discouraged because this is
 an observed source of instability in real tests when run on CI
 infrastructure. In particular if a test should fail when something
-doesn't happen it is good practice to simply let the test run to the
+doesn't happen, it is good practice to simply let the test run to the
 full timeout rather than trying to guess an appropriate shorter
 timeout to use.
 
-In other cases it may be necessary to use a timeout (e.g. for a test
-that only passes if some event is *not* fired. In this case it is
+In other cases it may be necessary to use a timeout (e.g., for a test
+that only passes if some event is *not* fired). In this case it is
 *not* permitted to use the standard `setTimeout` function. Instead one
 must use the `step_timeout` function:
 
@@ -263,7 +263,7 @@ must use the `step_timeout` function:
 
 The difference between `setTimeout` and `step_timeout` is that the
 latter takes account of the timeout multiplier when computing the
-delay e.g. in the above case a timeout multiplier of 2 would cause a
+delay; e.g., in the above case a timeout multiplier of 2 would cause a
 pause of 4000ms before calling the callback. This makes it less likely
 to produce unstable results in slow configurations.
 
